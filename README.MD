@@ -1,4 +1,19 @@
-# utility-studio
+# Utility Studio
+
+A Utility studio for some trivial task at a single place.
+
+## Features
+- [] Youtube 
+  - [x] Audio
+  - [] Video
+  - [] Subtitles
+- [] Documents
+  - [] PDF text extraction
+  - [] text summarizer
+- [] Images
+  - [] Background Remover
+- [] Links
+  - [] Link information extractor
 
 <div align="center" style="margin: 30px;">
     <a href="https://refine.dev">

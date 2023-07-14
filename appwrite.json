@@ -1,0 +1,20 @@
+{
+    "projectId": "utility-studio-test",
+    "projectName": "",
+    "functions": [
+        {
+            "$id": "64b01463c70b90f0596a",
+            "name": "audio-yt-py",
+            "runtime": "python-3.9",
+            "path": "functions/audio-yt-py",
+            "entrypoint": "src/index.py",
+            "ignore": [
+                "__pypackages__"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        }
+    ]
+}
