@@ -6,4 +6,5 @@ module.exports = {
     locales: ["en", "de"],
   },
   localePath: path.resolve("./public/locales"),
+  excludePages: ['/_app'],
 };

@@ -15,6 +15,34 @@
             "events": [],
             "schedule": "",
             "timeout": 15
+        },
+        {
+            "$id": "64b1319a68ab613e05e0",
+            "name": "video-yt-py",
+            "runtime": "python-3.9",
+            "path": "functions/video-yt-py",
+            "entrypoint": "src/index.py",
+            "ignore": [
+                "__pypackages__"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64b139bdc28f44d2da36",
+            "name": "subtitles-yt-py",
+            "runtime": "python-3.9",
+            "path": "functions/subtitles-yt-py",
+            "entrypoint": "src/index.py",
+            "ignore": [
+                "__pypackages__"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
         }
     ]
 }

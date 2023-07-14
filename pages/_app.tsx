@@ -12,6 +12,8 @@ import routerProvider, {
 } from "@refinedev/nextjs-router";
 import type { NextPage } from "next";
 import { AppProps } from "next/app";
+import { initReactI18next } from 'react-i18next';
+import i18next from 'i18next';
 
 import { Header } from "@components/header";
 import { ColorModeContextProvider } from "@contexts";
@@ -26,6 +28,22 @@ import { appwriteClient } from "src/utility";
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
 };
+
+i18next.use(initReactI18next).init({
+ lng: 'en', 
+  resources: {
+    en: {
+      translation: {
+        greeting: 'Hello',
+      },
+    },
+    fr: {
+      translation: {
+        greeting: 'Bonjour',
+      },
+    },
+  }
+});
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;

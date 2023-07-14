@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, FileField, Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import YouTube from 'react-youtube';
 import ytdl from 'ytdl-core';
 
@@ -37,6 +37,6 @@ export default function YouTubeUtility() {
 }
 
 // Helper function to get video ID from various URL formats
-function getVideoIdFromURL(url) {
+function getVideoIdFromURL(url: string) {
   // Parse URL and return video ID 
 }

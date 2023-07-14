@@ -44,6 +44,6 @@ export default function YouTubeUtility() {
 }
 
 // Helper function to get video ID from various URL formats
-function getVideoIdFromURL(url) {
+function getVideoIdFromURL(url: string) {
   // Parse URL and return video ID 
 }
