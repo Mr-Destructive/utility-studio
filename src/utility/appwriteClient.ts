@@ -1,4 +1,4 @@
-import { Account, Appwrite, Storage } from "@refinedev/appwrite";
+import { Account, Appwrite, Functions, Storage } from "@refinedev/appwrite";
 import nookies from "nookies";
 
 const APPWRITE_URL = "https://cloud.appwrite.io/v1";
@@ -18,5 +18,5 @@ if (appwriteJWT) {
 
 const account = new Account(appwriteClient);
 const storage = new Storage(appwriteClient);
-
-export { appwriteClient, account, storage };
+const functions = new Functions(appwriteClient);
+export { appwriteClient, account, functions, storage };

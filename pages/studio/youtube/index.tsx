@@ -2,7 +2,7 @@ import { Functions } from "appwrite";
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import YouTube from 'react-youtube';
-import {appwriteClient} from 'src/utility/appwriteClient'
+import {appwriteClient, functions} from 'src/utility/appwriteClient'
 
 export default function YouTubeUtility() {
   const [url, setUrl] = useState('');
@@ -11,7 +11,6 @@ export default function YouTubeUtility() {
   async function downloadAudio() {
     const function_id = "64b01463c70b90f0596a"
     console.log(appwriteClient);
-    const functions = new Functions(appwriteClient);
     const promise = functions.createExecution(function_id, url);
     promise.then(function (response) {
         console.log(response);

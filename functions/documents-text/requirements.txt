@@ -1,0 +1,3 @@
+appwrite
+pypdf2
+python-docx
