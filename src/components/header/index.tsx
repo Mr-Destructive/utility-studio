@@ -41,57 +41,6 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
             alignItems="center"
             gap="16px"
           >
-            <FormControl sx={{ minWidth: 64 }}>
-              <Select
-                disableUnderline
-                defaultValue={currentLocale}
-                inputProps={{ "aria-label": "Without label" }}
-                variant="standard"
-                sx={{
-                  color: "inherit",
-                  "& .MuiSvgIcon-root": {
-                    color: "inherit",
-                  },
-                  "& .MuiStack-root > .MuiTypography-root": {
-                    display: {
-                      xs: "none",
-                      sm: "block",
-                    },
-                  },
-                }}
-              >
-                {[...(locales ?? [])].sort().map((lang: string) => (
-                  // @ts-ignore
-                  <MenuItem
-                    component={Link}
-                    href={{ pathname, query }}
-                    locale={lang}
-                    selected={currentLocale === lang}
-                    key={lang}
-                    defaultValue={lang}
-                    value={lang}
-                  >
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      <Avatar
-                        sx={{
-                          width: "24px",
-                          height: "24px",
-                          marginRight: "5px",
-                        }}
-                        src={`/images/flags/${lang}.svg`}
-                      />
-                      <Typography>
-                        {lang === "en" ? "English" : "German"}
-                      </Typography>
-                    </Stack>
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
 
             <IconButton
               color="inherit"

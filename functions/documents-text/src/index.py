@@ -6,6 +6,7 @@ from appwrite.services.storage import Storage
 
 def document_to_text(file):
     try:
+        print(file)
         file_type = os.path.splitext(file)[1]
         if file_type == '.docx' or file_type == '.doc':
             import docx
@@ -23,7 +24,7 @@ def document_to_text(file):
             return text
     except Exception as e:
         print(e)
-        return None
+        return ""
 
 def main(req, res):
   client = Client()
@@ -46,8 +47,7 @@ def main(req, res):
   file = storage.get_file(bucket_id, file_id)
   with open(file["name"], 'wb') as f:
      f.write(data)
-  text = document_to_text(file.name)
-
+  text = document_to_text(file["name"])
   return res.json({
     "text": text
   })

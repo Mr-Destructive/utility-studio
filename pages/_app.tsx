@@ -29,21 +29,6 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
 };
 
-i18next.use(initReactI18next).init({
- lng: 'en', 
-  resources: {
-    en: {
-      translation: {
-        greeting: 'Hello',
-      },
-    },
-    fr: {
-      translation: {
-        greeting: 'Bonjour',
-      },
-    },
-  }
-});
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
@@ -108,9 +93,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 {
                   name: "Youtube",
                   list: "/studio/youtube",
-                  create: "/youtube/create",
-                  edit: "/youtube/edit/:id",
-                  show: "/youtube/show/:id",
                   meta: {
                     canDelete: false,
                   },
@@ -118,19 +100,13 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 {
                   name: "Documents",
                   list: "/studio/documents",
-                  create: "/documents/create",
-                  edit: "/documents/edit/:id",
-                  show: "/documents/show/:id",
                   meta: {
                     canDelete: false,
                   },
                 },
                 {
-                  name: "Images",
-                  list: "/studio/images",
-                  create: "/images/create",
-                  edit: "/images/edit/:id",
-                  show: "/images/show/:id",
+                  name: "Text",
+                  list: "/studio/text",
                   meta: {
                     canDelete: false,
                   },
@@ -138,9 +114,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 {
                   name: "Links",
                   list: "/studio/links",
-                  create: "/links/create",
-                  edit: "/links/edit/:id",
-                  show: "/links/show/:id",
                   meta: {
                     canDelete: false,
                   },

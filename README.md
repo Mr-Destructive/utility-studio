@@ -7,11 +7,11 @@ A Utility studio for some trivial task at a single place.
   - [x] Audio
   - [x] Video
   - [x] Subtitles
-- [ ] Documents
-  - [ ] PDF text extraction
-  - [ ] text summarizer
-- [ ] Images
-  - [ ] Background Remover
+- [x] Documents
+  - [x] PDF/docx text extraction
+  - [x] text summarizer
+- [x] Text
+  - [x] Text summarizer
 - [ ] Links
   - [ ] Link information extractor
 

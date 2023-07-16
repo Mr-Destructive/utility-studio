@@ -47,14 +47,14 @@ export default function HomePage() {
         <Card style={{margin: '10px', width: '45%'}}>
           <CardContent>
             <Typography variant="h5" gutterBottom>
-              Images
+              Text
             </Typography>
             <Typography>
-              Remove background from images
+              Summarize information from large text
             </Typography>
           </CardContent>
           <CardActions>
-            <Button href="/studio/images" size="small">Learn More</Button>
+            <Button href="/studio/text" size="small">Learn More</Button>
           </CardActions>
         </Card>
 

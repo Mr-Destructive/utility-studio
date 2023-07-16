@@ -38,7 +38,7 @@ def main(req, res):
   filename, title = video_upload(req.payload)
   unique_file_id = str(uuid.uuid4().hex)[:36]
   result = storage.create_file(bucket_id, unique_file_id, InputFile.from_path(filename))
-  url = f"{req.variables.get('APPWRITE_FUNCTION_ENDPOINT')}/storage/buckets/{bucket_id}/files/{unique_file_id}/view?project={req.variables.get('APPWRITE_FUNCTION_PROJECT_ID')}"
+  url = f"{req.variables.get('APPWRITE_FUNCTION_ENDPOINT')}/storage/buckets/{bucket_id}/files/{unique_file_id}/download?project={req.variables.get('APPWRITE_FUNCTION_PROJECT_ID')}"
   return res.json({
     "video": result["$id"],
     "filename": title,

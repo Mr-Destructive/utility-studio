@@ -7,10 +7,11 @@ def subtitle_extract(url):
   subtitles = YouTubeTranscriptApi.get_transcript(url)
   try:
     for subtitle in subtitles:
-        subtitle_text += " " + subtitle['text']
+        subtitle_text += " " + subtitle.get("text", "")
     return subtitle_text
   except Exception as e:
     print(e)
+    return ""
 
 
 def main(req, res):

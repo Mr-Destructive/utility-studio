@@ -45,35 +45,6 @@
             "timeout": 15
         },
         {
-            "$id": "64b15645112e99fc3fd8",
-            "name": "images-rmbg",
-            "runtime": "python-3.9",
-            "path": "functions/images-rmbg",
-            "entrypoint": "src/index.py",
-            "ignore": [
-                "__pypackages__"
-            ],
-            "execute": [],
-            "events": [],
-            "schedule": "",
-            "timeout": 15
-        },
-        {
-            "$id": "64b1722c8a0b918e0edc",
-            "name": "img-rmbj-js",
-            "runtime": "node-16.0",
-            "path": "functions/img-rmbj-js",
-            "entrypoint": "src/index.js",
-            "ignore": [
-                "node_modules",
-                ".npm"
-            ],
-            "execute": [],
-            "events": [],
-            "schedule": "",
-            "timeout": 15
-        },
-        {
             "$id": "64b24b4834ee2c415dd8",
             "name": "documents-text",
             "runtime": "python-3.9",
