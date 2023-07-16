@@ -2,20 +2,20 @@ import { Functions } from "appwrite";
 import React, { useState } from 'react';
 import { TextField, Button, Grid } from '@mui/material';
 import YouTube from 'react-youtube';
-import { appwriteClient, functions } from 'src/utility/appwriteClient'
+import * as appwriteConfig from 'src/utility/appwriteClient';
 
 export default function YouTubeUtility() {
   const [url, setUrl] = useState('');
   const [subtitles, setSubtitles] = useState('');
 
   async function downloadAudio() {
-    const function_id = appwriteClient.AUDIO_FUNCTION_ID;
+    const function_id = appwriteConfig.AUDIO_FUNCTION_ID;
     const video_id = getVideoIdFromURL(url);
     const parsed_url = "https://www.youtube.com/watch?v=" + video_id;
     setUrl(parsed_url);
 
-    const promise = functions.createExecution(function_id, parsed_url);
-    promise.then(function (response) {
+    const promise = appwriteConfig.functions.createExecution(function_id, parsed_url);
+    promise.then(function (response: any) {
       const jsonString = response.response;
       const data = JSON.parse(jsonString);
       const url = data.url;
@@ -23,19 +23,19 @@ export default function YouTubeUtility() {
       link.href = url;
       link.download = data.filename;
       link.click();
-    }, function (error) {
+    }, function (error: any) {
       console.log(error);
     });
   }
 
   async function downloadVideo() {
-    const function_id = appwriteClient.VIDEO_FUNCTION_ID;
+    const function_id = appwriteConfig.VIDEO_FUNCTION_ID;
     const video_id = getVideoIdFromURL(url);
     const parsed_url = "https://www.youtube.com/watch?v=" + video_id;
     setUrl(parsed_url);
 
-    const promise = functions.createExecution(function_id, parsed_url);
-    promise.then(function (response) {
+    const promise = appwriteConfig.functions.createExecution(function_id, parsed_url);
+    promise.then(function (response: any) {
       const jsonString = response.response;
       const data = JSON.parse(jsonString);
       const url = data.url;
@@ -43,19 +43,19 @@ export default function YouTubeUtility() {
       link.href = url;
       link.download = data.filename;
       link.click();
-    }, function (error) {
+    }, function (error: any) {
       console.log(error);
     });
   }
 
   async function getSubtitles() {
-    const function_id = appwriteClient.SUBTITLES_FUNCTION_ID;
+    const function_id = appwriteConfig.SUBTITLE_FUNCTION_ID;
     const video_id = getVideoIdFromURL(url);
     const parsed_url = "https://www.youtube.com/watch?v=" + video_id;
     setUrl(parsed_url);
 
-    const promise = functions.createExecution(function_id, parsed_url);
-    promise.then(function (response) {
+    const promise = appwriteConfig.functions.createExecution(function_id, parsed_url);
+    promise.then(function (response: any) {
       const jsonString = response.response;
       const data = JSON.parse(jsonString);
       if (data.subtitles) {
@@ -63,7 +63,7 @@ export default function YouTubeUtility() {
       } else {
         setSubtitles("");
       }
-    }, function (error) {
+    }, function (error: any) {
       console.log(error);
     });
   }

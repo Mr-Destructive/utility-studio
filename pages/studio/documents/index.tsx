@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { TextField, Button, Snackbar } from '@mui/material';
-import { appwriteClient, functions, storage } from 'src/utility/appwriteClient';
 import { ID } from "appwrite";
 import MuiAlert from '@mui/material/Alert';
+import * as appwriteConfig from 'src/utility/appwriteClient';
 
 export default function DocumentUtility() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -17,8 +17,8 @@ export default function DocumentUtility() {
   };
 
   async function downloadText() {
-    const bucket_id = appwriteClient.DOCUMENTS_BUCKET_ID;
-    const function_id = appwriteClient.DOCUMENTS_FUNCTION_ID;
+    const bucket_id = appwriteConfig.DOCUMENTS_BUCKET_ID;
+    const function_id = appwriteConfig.DOCUMENTS_FUNCTION_ID;
     const file_id = ID.unique();
     const doc = (document.getElementById('uploader') as HTMLInputElement)?.files?.[0];
 
@@ -27,20 +27,20 @@ export default function DocumentUtility() {
       return;
     }
 
-    const promise = storage.createFile(bucket_id, file_id, doc);
-    promise.then(function (response) {
+    const promise = appwriteConfig.storage.createFile(bucket_id, file_id, doc);
+    promise.then(function (response: any) {
       console.log(response);
       let fileid = response["$id"];
-      const text = functions.createExecution(function_id, fileid);
-      text.then(function (response) {
+      const text = appwriteConfig.functions.createExecution(function_id, fileid);
+      text.then(function (response: any) {
         console.log(response);
         const jsonString = response.response;
         const text = JSON.parse(jsonString);
         setText(text.text);
-      }, function (error) {
+      }, function (error: any) {
         console.log(error);
       });
-    }, function (error) {
+    }, function (error: any) {
       console.log(error);
     });
   }
