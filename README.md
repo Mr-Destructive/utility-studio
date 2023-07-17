@@ -12,8 +12,8 @@ A Utility studio for some trivial task at a single place.
   - [x] text summarizer
 - [x] Text
   - [x] Text summarizer
-- [ ] Links
-  - [ ] Link information extractor
+- [x] Links
+  - [x] Link information extractor
 
 <div align="center" style="margin: 30px;">
     <a href="https://refine.dev">

@@ -8,6 +8,7 @@ export default function DocumentUtility() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [url, setUrl] = useState('');
   const [text, setText] = useState('');
+  const [summary, setSummary] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleCancel = () => {
@@ -45,6 +46,21 @@ export default function DocumentUtility() {
     });
   }
 
+  function summarizeText() {
+  const doc_text = document.getElementById('text') as HTMLInputElement;
+  const text = doc_text.value;
+
+    const data = fetch('/api/palm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: "Summarize in bullet points, " + text,
+      }),
+    });
+  }
+
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
   };
@@ -57,8 +73,12 @@ export default function DocumentUtility() {
         Cancel
       </Button>
 
-      <Button onClick={downloadText} variant="contained" color="primary" sx={{ mt: 2 }}>
+      <Button onClick={downloadText} variant="contained" color="primary" sx={{ mt: 2, mr: 1 }}>
         Extract Text
+      </Button>
+
+      <Button onClick={summarizeText} variant="contained" color="primary" sx={{ mt: 2, mr: 1 }}>
+        Summarize Text
       </Button>
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} sx={{ mt: 2 }}>
@@ -69,6 +89,7 @@ export default function DocumentUtility() {
 
       {text &&
         <TextField
+          id="text"
           label="Text"
           value={text}
           multiline
@@ -76,6 +97,11 @@ export default function DocumentUtility() {
           sx={{ mt: 2 }}
         />
       }
+      {summary && (
+          <Grid item>
+            <div dangerouslySetInnerHTML={renderMarkdown(summary)} />
+          </Grid>
+      )}
     </div>
   );
 }

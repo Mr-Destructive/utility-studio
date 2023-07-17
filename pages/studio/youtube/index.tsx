@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { TextField, Button, Grid } from '@mui/material';
 import YouTube from 'react-youtube';
 import * as appwriteConfig from 'src/utility/appwriteClient';
+import {marked} from 'marked';
 
 export default function YouTubeUtility() {
   const [url, setUrl] = useState('');
   const [subtitles, setSubtitles] = useState('');
+  const [summary, setSummary] = useState('');
 
   async function downloadAudio() {
     const function_id = appwriteConfig.AUDIO_FUNCTION_ID;
@@ -68,6 +70,57 @@ export default function YouTubeUtility() {
     });
   }
 
+  async function summarizeSubtitles() {
+      const subtitles = document.getElementById('subtitles') as HTMLInputElement;
+      if (subtitles.value !== "") {
+          const text = subtitles.value;
+          const data = await fetch('/api/palm', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                text: "Summarize in bullet points, " + text,
+              }),
+              safetySettings: [
+                {
+                  category: 'HARM_CATEGORY_DEROGATORY',
+                  threshold: 'BLOCK_LOW_AND_ABOVE',
+                },
+                {
+                  category: 'HARM_CATEGORY_TOXICITY',
+                  threshold: 'BLOCK_LOW_AND_ABOVE',
+                },
+                {
+                  category: 'HARM_CATEGORY_VIOLENCE',
+                  threshold: 'BLOCK_LOW_AND_ABOVE',
+                },
+                {
+                  category: 'HARM_CATEGORY_SEXUAL',
+                  threshold: 'BLOCK_LOW_AND_ABOVE',
+                },
+                {
+                  category: 'HARM_CATEGORY_MEDICAL',
+                  threshold: 'BLOCK_LOW_AND_ABOVE',
+                },
+                {
+                  category: 'HARM_CATEGORY_DANGEROUS',
+                  threshold: 'BLOCK_LOW_AND_ABOVE',
+                },
+              ],
+          });
+          const resp = await data.json();
+          console.log(resp.data)
+          setSummary(resp.data);
+      }
+  }
+
+  const renderMarkdown = (text: string) => {
+    const html = marked(text);
+    console.log(html);
+    return { __html: html };
+  };
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -87,13 +140,14 @@ export default function YouTubeUtility() {
         <Button variant="contained" color="primary" sx={{ mt: 2 , mr:1 }} onClick={downloadAudio}>Download Audio</Button>
         <Button variant="contained" color="primary" sx={{ mt: 2 , mr:1 }} onClick={downloadVideo}>Download Video</Button>
         <Button variant="contained" color="primary" sx={{ mt: 2, mr:1 }} onClick={getSubtitles}>Download Subtitles</Button>
-        <Button variant="contained" color="primary"sx={{ mt: 2, mr:1 }}>Summarize Subtitles *</Button>
+        <Button variant="contained" color="primary"sx={{ mt: 2, mr:1 }} onClick={summarizeSubtitles}>Summarize Subtitles *</Button>
       </Grid>
 
 {subtitles &&
       <Grid item xs={12}>
         <TextField
           label="Subtitles"
+          id="subtitles"
           multiline
           rows={4}
           value={subtitles}
@@ -102,6 +156,11 @@ export default function YouTubeUtility() {
         />
       </Grid>
       }
+      {summary && (
+          <Grid item>
+            <div dangerouslySetInnerHTML={renderMarkdown(summary)} />
+          </Grid>
+      )}
     </Grid>
   );
 }

@@ -84,39 +84,24 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
               i18nProvider={i18nProvider}
               resources={[
                 {
-                  name: "studio",
+                  name: "Studio",
                   list: "/studio",
-                  meta: {
-                    canDelete: true,
-                  },
                 },
                 {
-                  name: "Youtube",
+                  name: "YouTube",
                   list: "/studio/youtube",
-                  meta: {
-                    canDelete: false,
-                  },
                 },
                 {
                   name: "Documents",
                   list: "/studio/documents",
-                  meta: {
-                    canDelete: false,
-                  },
                 },
                 {
                   name: "Text",
                   list: "/studio/text",
-                  meta: {
-                    canDelete: false,
-                  },
                 },
                 {
                   name: "Links",
                   list: "/studio/links",
-                  meta: {
-                    canDelete: false,
-                  },
                 },
               ]}
               options={{

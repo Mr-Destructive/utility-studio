@@ -63,6 +63,9 @@
       "404": "Sorry, the page you visited does not exist.",
       "resource404": "Are you sure you have created the {{resource}} resource.",
       "backHome": "Back Home"
+    },
+    "youtube": {
+      "title": "Youtube",
     }
   },
   "actions": {
@@ -140,6 +143,18 @@
       "list": "Categories",
       "show": "Show Category"
     }
+  },
+  "documents": {
+    "documents": "Documents"
+  },
+  "youtube": {
+    "youtube": "Youtube"
+  },
+  "links": {
+    "links": "Links"
+  },
+  "texts": {
+    "texts": "Texts"
   },
   "documentTitle": {
     "default": "refine",

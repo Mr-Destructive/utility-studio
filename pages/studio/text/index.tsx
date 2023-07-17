@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TextareaAutosize } from '@mui/base';
 import { Button, Grid, TextField } from '@mui/material';
+import {marked} from 'marked';
 
 export default function TextSummaryUtility() {
   const [text, setText] = useState('');
   const [summary, setSummary] = useState('');
+
 
   async function summarizeText() {
     const data = await fetch('/api/palm', {
@@ -13,14 +15,46 @@ export default function TextSummaryUtility() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        text: text,
+        text: 'Summarize in bullet points, ' + text,
       }),
+      safetySettings: [
+        {
+          category: 'HARM_CATEGORY_DEROGATORY',
+          threshold: 'BLOCK_LOW_AND_ABOVE',
+        },
+        {
+          category: 'HARM_CATEGORY_TOXICITY',
+          threshold: 'BLOCK_LOW_AND_ABOVE',
+        },
+        {
+          category: 'HARM_CATEGORY_VIOLENCE',
+          threshold: 'BLOCK_LOW_AND_ABOVE',
+        },
+        {
+          category: 'HARM_CATEGORY_SEXUAL',
+          threshold: 'BLOCK_LOW_AND_ABOVE',
+        },
+        {
+          category: 'HARM_CATEGORY_MEDICAL',
+          threshold: 'BLOCK_LOW_AND_ABOVE',
+        },
+        {
+          category: 'HARM_CATEGORY_DANGEROUS',
+          threshold: 'BLOCK_LOW_AND_ABOVE',
+        },
+      ],
     });
 
     const resp = await data.json();
     console.log(resp);
     setSummary(resp.data);
   }
+
+  const renderMarkdown = (text: string) => {
+    const html = marked(text);
+    console.log(html);
+    return { __html: html };
+  };
 
   return (
     <Grid container direction="column" alignItems="center" spacing={2}>
@@ -38,19 +72,9 @@ export default function TextSummaryUtility() {
         </Button>
       </Grid>
       {summary && (
-        <Grid item>
-          <TextField
-            value={summary}
-            variant="outlined"
-            label="Summary"
-            fullWidth
-            multiline
-            rows={4}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-        </Grid>
+          <Grid item>
+            <div dangerouslySetInnerHTML={renderMarkdown(summary)} />
+          </Grid>
       )}
     </Grid>
   );

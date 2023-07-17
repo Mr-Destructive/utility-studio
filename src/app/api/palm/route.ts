@@ -10,7 +10,7 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
         prompt: {
-            text: "Summarize in bullet points, " + body.text
+            text: body.text
         },
         temperature: 1.0
         })
