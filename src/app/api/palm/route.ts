@@ -15,28 +15,32 @@ export async function POST(req: Request) {
         temperature: 1.0,
         safetySettings: [
           {
+            category: 'HARM_CATEGORY_UNSPECIFIED',
+            threshold: 'BLOCK_NONE',
+          },
+          {
             category: 'HARM_CATEGORY_DEROGATORY',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
+            threshold: 'BLOCK_NONE',
           },
           {
             category: 'HARM_CATEGORY_TOXICITY',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
+            threshold: 'BLOCK_NONE',
           },
           {
             category: 'HARM_CATEGORY_VIOLENCE',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
+            threshold: 'BLOCK_NONE',
           },
           {
             category: 'HARM_CATEGORY_SEXUAL',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
+            threshold: 'BLOCK_NONE',
           },
           {
             category: 'HARM_CATEGORY_MEDICAL',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
+            threshold: 'BLOCK_NONE',
           },
           {
             category: 'HARM_CATEGORY_DANGEROUS',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
+            threshold: 'BLOCK_NONE',
           }
         ]
         })

@@ -84,7 +84,6 @@ export default function YouTubeUtility() {
               }),
           });
           const resp = await data.json();
-          console.log(resp.data)
           setSummary(resp.data);
       }
   }
