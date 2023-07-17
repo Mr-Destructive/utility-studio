@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { TextField, Button, Snackbar } from '@mui/material';
+import { TextField, Grid, Button, Snackbar } from '@mui/material';
 import { ID } from "appwrite";
 import MuiAlert from '@mui/material/Alert';
 import * as appwriteConfig from 'src/utility/appwriteClient';
+import {marked} from 'marked';
 
 export default function DocumentUtility() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -63,6 +64,12 @@ export default function DocumentUtility() {
 
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
+  };
+
+  const renderMarkdown = (text: string) => {
+    const html = marked(text);
+    console.log(html);
+    return { __html: html };
   };
 
   return (

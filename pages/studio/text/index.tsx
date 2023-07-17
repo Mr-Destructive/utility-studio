@@ -17,32 +17,6 @@ export default function TextSummaryUtility() {
       body: JSON.stringify({
         text: 'Summarize in bullet points, ' + text,
       }),
-      safetySettings: [
-        {
-          category: 'HARM_CATEGORY_DEROGATORY',
-          threshold: 'BLOCK_LOW_AND_ABOVE',
-        },
-        {
-          category: 'HARM_CATEGORY_TOXICITY',
-          threshold: 'BLOCK_LOW_AND_ABOVE',
-        },
-        {
-          category: 'HARM_CATEGORY_VIOLENCE',
-          threshold: 'BLOCK_LOW_AND_ABOVE',
-        },
-        {
-          category: 'HARM_CATEGORY_SEXUAL',
-          threshold: 'BLOCK_LOW_AND_ABOVE',
-        },
-        {
-          category: 'HARM_CATEGORY_MEDICAL',
-          threshold: 'BLOCK_LOW_AND_ABOVE',
-        },
-        {
-          category: 'HARM_CATEGORY_DANGEROUS',
-          threshold: 'BLOCK_LOW_AND_ABOVE',
-        },
-      ],
     });
 
     const resp = await data.json();
