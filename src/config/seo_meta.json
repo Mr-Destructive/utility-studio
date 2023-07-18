@@ -1,0 +1,25 @@
+{
+  "title": "Utility Studio | Quick AI powered utilities",
+  "titleTemplate": "%s - Utility Studio",
+  "description": "Quickly generate summmaries of YouTube links, documents, and text.",
+  "openGraph": {
+    "title": "Utility Studio | Quick AI powered utilities",
+    "description": "Quickly generate summmaries of YouTube links, documents, and text.",
+    "type": "website",
+    "url": "https://utility-studio.vercel.app/",
+    "site_name": "Utility Studio",
+    "images": [
+      {
+        "url": "/favicon.png",
+        "width": "1240",
+        "height": "640",
+        "alt": "Utility Studio"
+      }
+    ]
+  },
+  "twitter": {
+    "handle": "@nextjs",
+    "site": "@nextjs",
+    "cardType": "summary_large_image"
+  }
+}

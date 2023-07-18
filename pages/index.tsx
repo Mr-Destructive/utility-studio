@@ -12,10 +12,17 @@ import {
   CardActions,
   Button
 } from '@mui/material';
+import Head from 'next/head';
+import App from "./App";
+import { createRoot } from "react-dom/client";
 
 export default function HomePage() {
   return (
+
     <div>
+      <Head>
+        <title>Utility Studio</title>
+      </Head>
       <Typography variant="h4" align="center">
         Welcome to the Utility Studio!
       </Typography>

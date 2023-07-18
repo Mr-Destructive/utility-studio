@@ -76,6 +76,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider>
             <Refine
+              title="Utility Studio"
               routerProvider={routerProvider}
               dataProvider={dataProvider(appwriteClient, {
                 databaseId: "database",
