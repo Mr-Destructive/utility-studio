@@ -47,11 +47,11 @@ export default function DocumentUtility() {
     });
   }
 
-  function summarizeText() {
+  async function summarizeText() {
   const doc_text = document.getElementById('text') as HTMLInputElement;
   const text = doc_text.value;
 
-    const data = fetch('/api/palm', {
+    const data = await fetch('/api/palm', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -60,6 +60,8 @@ export default function DocumentUtility() {
         text: "Summarize in bullet points, " + text,
       }),
     });
+    const resp = await data.json();
+    setSummary(resp.data);
   }
 
   const handleCloseSnackbar = () => {
@@ -95,14 +97,18 @@ export default function DocumentUtility() {
       </Snackbar>
 
       {text &&
-        <TextField
-          id="text"
-          label="Text"
-          value={text}
-          multiline
-          rows={4}
-          sx={{ mt: 2 }}
-        />
+          <Grid item>
+            <TextField
+              id="text"
+              label="Text"
+              value={text}
+              multiline
+              rows={4}
+              sx={{ mt: 2 }}
+              disabled
+              fullWidth
+            />
+          </Grid>
       }
       {summary && (
           <Grid item>
