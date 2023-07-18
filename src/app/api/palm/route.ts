@@ -50,7 +50,9 @@ export async function POST(req: Request) {
     const resp = data.candidates[0].output;
     console.log(resp)
     return NextResponse.json({ data: resp })
+  } else {
+      return NextResponse.json({ data : 'Inappropriate content for this request' })
   }
  
-  return NextResponse.json({ data })
+  //return NextResponse.json({ data })
 }

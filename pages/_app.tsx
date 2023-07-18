@@ -4,7 +4,7 @@ import {
   notificationProvider,
   RefineSnackbarProvider,
   ThemedLayoutV2,
-  ThemedTitleV2,
+  //ThemedTitleV2,
 } from "@refinedev/mui";
 import routerProvider, {
   DocumentTitleHandler,
@@ -24,6 +24,9 @@ import { appWithTranslation, useTranslation } from "next-i18next";
 import { authProvider } from "src/authProvider";
 import { AppIcon } from "src/components/app-icon";
 import { appwriteClient } from "src/utility";
+import {ThemedSiderV2} from "src/components/themedLayout/sider";
+import {ThemedTitleV2} from "src/components/themedLayout/title";
+import {StudioIcon} from "src/components/app-icon"
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -46,10 +49,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
         Title={({ collapsed }) => (
           <ThemedTitleV2
             collapsed={collapsed}
+            icon={<StudioIcon/>}
             text="Utility Studio"
-            icon={<AppIcon />}
           />
         )}
+        Sider={ThemedSiderV2 }
       >
         <Component {...pageProps} />
       </ThemedLayoutV2>

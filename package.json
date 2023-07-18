@@ -24,6 +24,7 @@
     "@refinedev/mui": "^5.0.0",
     "@refinedev/nextjs-router": "^5.1.4",
     "@refinedev/react-hook-form": "^4.1.2",
+    "appwrite": "^10.0.1",
     "axios": "^1.4.0",
     "marked": "^5.1.1",
     "next": "^13.0.6",
