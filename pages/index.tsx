@@ -13,8 +13,11 @@ import {
   Button
 } from '@mui/material';
 import Head from 'next/head';
-import App from "./App";
 import { createRoot } from "react-dom/client";
+import DescriptionIcon from '@mui/icons-material/Description';
+import LinkIcon from '@mui/icons-material/Link';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 export default function HomePage() {
   return (
@@ -60,7 +63,6 @@ export default function HomePage() {
       </ul>
     </section>
 
-
       <section>
         <h2>Call-to-Action</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -69,6 +71,7 @@ export default function HomePage() {
             <Typography variant="h5" gutterBottom>
               YouTube
             </Typography>
+            <YouTubeIcon />
             <Typography>
               Download/Summarize YouTube videos with audio/video/subtitles
             </Typography>
@@ -85,6 +88,7 @@ export default function HomePage() {
             <Typography variant="h5" gutterBottom>
               Documents
             </Typography>
+            <DescriptionIcon/>
             <Typography>
               Extract and Summarize text from documents
             </Typography>
@@ -101,6 +105,7 @@ export default function HomePage() {
             <Typography variant="h5" gutterBottom>
               Text 
             </Typography>
+            <TextFieldsIcon/>
             <Typography>
               Summarize information from large text
             </Typography>
@@ -116,6 +121,7 @@ export default function HomePage() {
             <Typography variant="h5" gutterBottom>
               Links
             </Typography>
+            <LinkIcon/>
             <Typography>
               Extract and Summarize information from links
             </Typography>
