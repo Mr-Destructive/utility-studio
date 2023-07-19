@@ -11,6 +11,7 @@ import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useGetIdentity } from "@refinedev/core";
+import ListItemButton from "@mui/material/ListItemButton";
 import { HamburgerMenu, RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -34,6 +35,31 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
       <Toolbar>
         <Stack direction="row" width="100%" alignItems="center">
           <HamburgerMenu />
+         <Typography
+                sx={{
+                  display: {
+                    xs: "none",
+                    sm: "inline-block",
+                  },
+                whiteSpace: "nowrap",
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                color: "#ab47bc",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                marginRight: "16px",
+                cursor: "pointer",
+                }}
+                variant="h5"
+                component="div"
+              >
+                  <ListItemButton
+                      component={Link}
+                      href="/"
+                  >
+                    Utility Studio
+                  </ListItemButton>
+              </Typography>
           <Stack
             direction="row"
             width="100%"
