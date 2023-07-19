@@ -1,5 +1,9 @@
 # Utility Studio
 
+![image](https://github.com/Mr-Destructive/utility-studio/assets/40317114/c2135ec3-a9e9-4690-8e20-f1bfbdf5efe1)
+
+
+
 > A quick one-stop place for some extraction or summarisation of content. 
 
 Perform extraction of information from web, youtube, or document links, download video/audio from youtube links, and summarize the text content.
@@ -18,23 +22,23 @@ Perform extraction of information from web, youtube, or document links, download
   - Link information extractor
 
 
-## Demo
+## Project Demo link
 
-A simple demonstration of some of the features.
+[Utility Studio](https://utility-studio.vercel.app)
 
-https://github.com/Mr-Destructive/utility-studio/assets/40317114/98408d74-bf9c-4779-a3c0-c92307e7b751
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=utility-studio)
+Hosted on vercel
+
+## About
+
+### Description
+
+A place for quick and easy access to tasks like document, video, and text summarizing. Users can quickly come and drop their documents, youtube links, text, and web links and generate/extract textual information.
 
 
-<div align="center" style="margin: 30px;">
-    <a href="https://refine.dev">
-    <img src="https://refine.ams3.cdn.digitaloceanspaces.com/refine_logo.png"  align="center" />
-    </a>
-</div>
-<br/>
+#### Tech Stack
 
-This [refine](https://github.com/pankod/refine) project was generated with [superplate](https://github.com/pankod/refine).
-
-## Tech Stack
+  The Utility Studio is built on a Refine (Next.js) project, leveraging the power of server-side rendering and React components for a smooth user experience. It integrates with Appwrite, a backend serverless platform, to handle various functionalities.
 
 - Refine
 - Next JS
@@ -42,40 +46,13 @@ This [refine](https://github.com/pankod/refine) project was generated with [supe
 - Python (cloud functions)
 - Material UI
 
-## Getting Started
 
-**refine** is a React-based framework for building data-intensive applications in no time ✨
+### Preview
 
-Refine offers lots of out-of-the box functionality for rapid development, without compromising extreme customizability. Use-cases include, but are not limited to admin panels, B2B applications and dashboards.
+A simple demonstration of some of the features.
 
-## Available Scripts
+https://github.com/Mr-Destructive/utility-studio/assets/40317114/98408d74-bf9c-4779-a3c0-c92307e7b751
 
-### Running the development server.
-
-```bash
-    npm run dev
-```
-
-### Building for production.
-
-```bash
-    npm run build
-```
-
-### Running the production server.
-
-```bash
-    npm run start
-```
-
-## Learn More
-
-To learn more about **refine**, please check out the [Documentation](https://refine.dev/docs)
-
-- **Appwrite Data Provider** [Docs](https://refine.dev/docs/core/providers/data-provider/#overview)
-- **Material UI** [Docs](https://refine.dev/docs/ui-frameworks/mui/tutorial/)
-- **Inferencer** [Docs](https://refine.dev/docs/packages/documentation/inferencer)
-- **i18n** [Docs](https://refine.dev/docs/core/providers/i18n-provider/)
 
 ## License
 
@@ -83,14 +60,52 @@ MIT
 
 ## Local dev environment setup
 
-- Prefered using Node version 18+
+### Prerequisites
 
+- Node Version 18+
+- PaLM API access
+- Appwrite Cloud/self-hosted setup
+
+## Install Project
+ 
+- Prefered using Node version 18+
+- Clone the git repository and checkout to the repo
 ```
 git clone https://github.com/mr-destructive/utility-studio
+
 cd utility-studio
+```
+
+- Install dependencies
+```
 npm install
+```
+
+- Start local development server on port `3000` by default
+```
 npm run dev
 ```
+OR 
+customize the default port 
+```
+npm run dev -- -p 8000
+```
+This should start the app on [localhost:3000](localhost:3000) or on your set port. 🚀
+
+#### Other useful commands 
+
+- Building the app
+```
+npm run build
+```
+
+- Using swizzle command (to customize any component)
+
+```
+npm run refine swizzle
+```
+
+
 
 ### Additional Setup
 
@@ -105,5 +120,26 @@ npm run dev
 
 - PaLM API
 
-1. Register for [MakerSuite]() account on PaLM
-2. 
+1. Register for [MakerSuite](https://makersuite.google.com/app/home) account for access to PaLM API(waiting list)
+2. Generate API keys from the [dashboard](https://makersuite.google.com/app/apikey)
+3. This will give you access to the PaLM API which powers Google Generative AI technologies like Bard AI, etc.
+
+## Contributing
+
+Report any issues or bugs in the app by creating an issue [here](https://github.com/Mr-Destructive/utility-studio/issues/new/choose)
+
+## References and Credits
+
+This [refine](https://github.com/pankod/refine) project was generated with [superplate](https://github.com/pankod/refine).
+
+To learn more about **refine**, please check out the [Documentation](https://refine.dev/docs)
+
+- **Appwrite Data Provider** [Docs](https://refine.dev/docs/core/providers/data-provider/#overview)
+- **Material UI** [Docs](https://refine.dev/docs/ui-frameworks/mui/tutorial/)
+- **Inferencer** [Docs](https://refine.dev/docs/packages/documentation/inferencer)
+- **i18n** [Docs](https://refine.dev/docs/core/providers/i18n-provider/)
+
+For the project-specific dependencies:
+
+- **Appwrite** [Docs](https://appwrite.io/docs)
+- **PaLM API** [Docs](https://developers.generativeai.google/products/palm)
