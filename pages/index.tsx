@@ -151,12 +151,27 @@ export default function HomePage() {
 
       <hr/>
       <footer>
-      <section>
-        <h4>Contact</h4>
-      </section>
-      <section>
-        <h4>About</h4>
-      </section>
+        <section>
+          <h4>About</h4>
+          <p>
+            Utility Studio is a versatile web application designed to simplify the process of extracting textual information from various types of content, including documents, YouTube videos, and text snippets. Its features include downloading audio/video from YouTube, extracting text from documents, summarizing text content, and extracting information from web links. It is built using Refine (Next.js), Appwrite, and Material UI.
+          </p>
+        </section>
+        <section>
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="https://github.com/mr-destructive" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/MeetGor21" target="_blank" rel="noopener noreferrer">
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </section>
       </footer>
     </div>
   );
